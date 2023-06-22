@@ -4,6 +4,16 @@
     box-sizing: border-box;
 }
 
+:root {
+    --text-color: white;
+    --bg-url: url(assets/bg-mobile.jpg)
+}
+
+.light {
+    --text-color: black;
+    --bg-url: url(./assets/bg-mobile-light.jpg)
+}
+
 body {
     /*
     background-image: url(./assets/bg-mobile.jpg);
@@ -14,12 +24,12 @@ body {
     
     /* Esse shorthand está substituindo o código acima => 
     backgrounnd: color image repeat positions/size */
-    background: url(assets/bg-mobile.jpg) no-repeat top center/cover;
+    background: var(--bg-url) no-repeat top center/cover;
 }
 
 body * {
     font-family: 'Inter', sans-serif;
-    color: #fff;
+    color: var(--text-color);
 }
 
 #container {
@@ -29,6 +39,7 @@ body * {
     auto /*Aqui pegamos as laterais e deixamos a div #container alinhado ao meio */ 
     0px; /*Aqui pegamos em baixo */
     padding-top: 56px;
+    padding: 0 24px;
 
 }
 
@@ -46,3 +57,75 @@ body * {
     line-height: 24px;
     margin-top: 8px;
 }
+
+/* links */
+ul {
+    list-style: none;
+
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    padding: 24px 0;
+}
+
+ul li a {
+    border: 1px solid red;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 16px 24px;
+
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 8px;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+
+    text-decoration: none;
+    font-weight: 500;
+
+    transition: background 0.2s;
+}
+
+/* pseudo-selector aplica as coisas quando passa o mouse em cima */
+ul li a:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--text-color);
+}
+
+
+/* social links */
+#social-links {
+    display: flex;
+    justify-content: center;
+  
+    padding: 24px 0;
+
+    font-size: 24px;
+}
+
+#social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+
+    transition: background 0.2s;
+    border-radius: 50%;
+}
+
+#social-links a:hover {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 16px;
+}
+
+footer {
+    padding: 24px 0;
+    text-align: center;
+    font-size: 14px;
+}
+
+
