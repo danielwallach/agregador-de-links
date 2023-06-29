@@ -6,14 +6,23 @@
 
 :root {
     --text-color: white;
-    --bg-url: url(assets/bg-mobile.jpg)
+    --bg-url: url(assets/bg-mobile.jpg);
+    --stroke-color: rgba(255,255,255, 0.5);
+    --surface-color: rgba(255,255,255, 0.05);
+    --surface-color-hover: rgba(0,0,0, 0.02);
+    --highlight-color: rgba(255,255,255, 0.2);
+    --switch-bg-url: url(assets/moon-stars.svg);
 }
 
 .light {
     --text-color: black;
-    --bg-url: url(./assets/bg-mobile-light.jpg)
+    --bg-url: url(./assets/bg-mobile-light.jpg);
+    --stroke-color: rgba(0,0,0, 0.5);
+    --surface-color: rgba(0,0,0, 0.05);
+    --surface-color-hover: rgba(0,0,0, 0.02);
+    --highlight-color: rgba(0,0,0, 0.1);
+    --switch-bg-url: url(assets/sun.svg);
 }
-
 body {
     /*
     background-image: url(./assets/bg-mobile.jpg);
@@ -43,6 +52,7 @@ body * {
 
 }
 
+/* profile */
 #profile {
     text-align: center;
     padding: 24px;
@@ -56,6 +66,44 @@ body * {
     font-weight: 500px;
     line-height: 24px;
     margin-top: 8px;
+}
+
+/* switch */
+#switch {
+    position: relative;
+    width: 64px;
+
+    margin: 4px auto;
+}
+
+#switch button {
+    width: 32px;
+    height: 32px;
+    background: white var(--switch-bg-url) no-repeat center;
+    border: 0;
+    border-radius: 50%;
+
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    z-index: 1;
+}
+
+.light #switch button {
+    right: 0;
+    left: initial;
+}
+
+#switch span {
+    display: block; /* esse display: block foi colocado pq o span por padrão tem o display inline, que não aceita algumas propriedades (como a largura por exemplo)*/
+    width: 64px;
+    height: 24px;
+    background: var(--surface-color);
+    border: 1px solid var(--stroke-color);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border-radius: 9999px;
 }
 
 /* links */
@@ -78,8 +126,8 @@ ul li a {
 
     padding: 16px 24px;
 
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.5);
+    background: var(--surface-color);
+    border: 1px solid var(--stroke-color);
     border-radius: 8px;
     backdrop-filter: blur(4px);
     -webkit-backdrop-filter: blur(4px);
@@ -92,7 +140,7 @@ ul li a {
 
 /* pseudo-selector aplica as coisas quando passa o mouse em cima */
 ul li a:hover {
-    background: rgba(255, 255, 255, 0.05);
+    background: var(--surface-color-hover);
     border: 1px solid var(--text-color);
 }
 
@@ -118,8 +166,8 @@ ul li a:hover {
 }
 
 #social-links a:hover {
-    background: rgba(255, 255, 255, 0.2);
-    padding: 16px;
+    background: var(--highlight-color);
+    
 }
 
 footer {
